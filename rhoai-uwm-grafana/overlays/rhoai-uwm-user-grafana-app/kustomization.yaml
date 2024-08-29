@@ -8,24 +8,38 @@ resources:
   - ../grafana-uwm-user-app
   - namespace.yaml
   - operator-group.yaml
+  - grafana-folder.yaml
+  - grafana-vllm-dashboard.yaml
+  - grafana-ovms-dashboard.yaml
 
 patches:
-- patch: |-
-    - op: add
-      path: /subjects/0/namespace
-      value: user-grafana
-    - op: replace
-      path: /metadata/name
-      value: cluster-monitoring-view-user-grafana
-  target:
-    group: rbac.authorization.k8s.io
-    kind: ClusterRoleBinding
-    name: cluster-monitoring-view
-- patch: |-
-    - op: add
-      path: /subjects/0/namespace
-      value: user-grafana
-  target:
-    group: rbac.authorization.k8s.io
-    kind: RoleBinding
-    name: grafana-proxy
+  - patch: |-
+      - op: add
+        path: /subjects/0/namespace
+        value: user-grafana
+      - op: replace
+        path: /metadata/name
+        value: cluster-monitoring-view-user-grafana
+    target:
+      group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: cluster-monitoring-view
+  - patch: |-
+      - op: add
+        path: /subjects/0/namespace
+        value: user-grafana
+    target:
+      group: rbac.authorization.k8s.io
+      kind: RoleBinding
+      name: grafana-proxy
+  - patch: |-
+      - op: add
+        path: /spec/config/users
+        value:
+          auto_assign_org: 'true'
+          auto_assign_org_id: '1'
+          auto_assign_org_role: Admin
+    target:
+      group: grafana.integreatly.org
+      version: v1beta1
+      kind: Grafana
