@@ -17,6 +17,16 @@ Enable RHOAI User Workload Metrics for Single Serving Models
 
 ## Usage
 
+Grab the Grafana route and open it in a browser:
+
 ```md
-oc get route -n user-grafana grafana-route -o jsonpath='{.spec.host}'
+NS="user-grafana"
+GRAFANA_URL=$(oc get route -n $NS grafana-route -o jsonpath='{.spec.host}')
+echo $GRAFANA_URL
 ```
+
+Within the Grafana Dashboard, go to Dashboards and select the `vLLM` dashboard:
+
+![vLLM Dashboard](./assets/dashboard1.png)
+
+![vLLM Dashboard2](./assets/dashboard2.png)
