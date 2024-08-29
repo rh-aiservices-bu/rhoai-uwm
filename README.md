@@ -25,8 +25,16 @@ GRAFANA_URL=$(oc get route -n $NS grafana-route -o jsonpath='{.spec.host}')
 echo $GRAFANA_URL
 ```
 
+### vLLM Dashboard
+
 Within the Grafana Dashboard, go to Dashboards and select the `vLLM` dashboard:
 
 ![vLLM Dashboard](./assets/dashboard1.png)
 
 ![vLLM Dashboard2](./assets/dashboard2.png)
+
+### OpenVino Dashboard
+
+Within the Grafana Dashboard, go to Dashboards and select the `OVMS` dashboard:
+
+![OpenVino Dashboard](./assets/dashboard3.png)
