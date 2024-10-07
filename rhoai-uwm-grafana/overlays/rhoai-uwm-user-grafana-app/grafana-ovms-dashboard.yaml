@@ -6,7 +6,7 @@ metadata:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   name: ovms-dashboard
   labels:
-    instance: grafana
+    dashboards: grafana
 spec:
   folder: RHOAI Single Model Serving Dashboards
   instanceSelector:

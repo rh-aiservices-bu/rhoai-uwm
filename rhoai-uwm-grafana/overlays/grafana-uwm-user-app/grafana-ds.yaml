@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "1"
-  name: prometheus
+  name: prometheus-grafanadatasource
 spec:
   datasource:
     access: proxy
@@ -16,9 +16,9 @@ spec:
       tlsSkipVerify: true
     name: Prometheus
     secureJsonData:
-      httpHeaderValue1: 'Bearer ${GRAFANA_TOKEN}'
+      httpHeaderValue1: 'Bearer ${token}'
     type: prometheus
     url: 'https://thanos-querier.openshift-monitoring.svc.cluster.local:9091'
   instanceSelector:
     matchLabels:
-      instance: "grafana"
+      dashboards: "grafana"
