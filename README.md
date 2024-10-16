@@ -25,20 +25,18 @@ GRAFANA_URL=$(oc get route -n $NS grafana-route -o jsonpath='{.spec.host}')
 echo $GRAFANA_URL
 ```
 
-### vLLM Dashboard Model Metrics
+- **vLLM Model Metrics Dashboard**: Provides Model metrics for vLLM Single Serving Models dashboard.
 
-Within the Grafana Dashboard, go to Dashboards and select the `vLLM` dashboard:
+![vLLM Dashboard 1](./assets/dashboard1.png)
 
-![vLLM Dashboard](./assets/dashboard1.png)
+- **vLLM Service Performance Dashboard**: Provides Service Performance metrics for vLLM Single Serving Models dashboard.
 
-![vLLM Dashboard2](./assets/dashboard2.png)
+![vLLM Dashboard 2](./assets/dashboard2.png)
 
-### vLLM Dashboard Service Performance
+- **OpenVino Service Model Metrics Dashboard**: Provides metrics for OpenVino Single Serving Models
 
-![vLLM Dashboard2](./assets/dashboard4.png)
+![vLLM Dashboard 4](./assets/dashboard4.png)
 
-### OpenVino Dashboard
+- **OpenVino Model Metrics Dashboard**: Provides Service Performance metrics for OpenVino Single Serving Models.
 
-Within the Grafana Dashboard, go to Dashboards and select the `OVMS` dashboard:
-
-![OpenVino Dashboard](./assets/dashboard3.png)
+![vLLM Dashboard 3](./assets/dashboard3.png)
