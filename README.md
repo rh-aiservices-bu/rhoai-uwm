@@ -40,3 +40,9 @@ echo $GRAFANA_URL
 - **OpenVino Model Metrics Dashboard**: Provides Service Performance metrics for OpenVino Single Serving Models.
 
 ![vLLM Dashboard 3](./assets/dashboard3.png)
+
+- **GPU / vLLM Dashboard**: Provides GPU and vLLM performance metrics for Single Serving Models.
+
+![GPU Dashboard 5](./assets/dashboard5.png)
+
+![vLLM Dashboard 6](./assets/dashboard6.png)
