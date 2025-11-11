@@ -1,30 +1,12 @@
----
 apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
+kind: ClusterRoleBinding
 metadata:
-  name: grafana-proxy
-rules:
-  - verbs:
-      - create
-    apiGroups:
-      - authentication.k8s.io
-    resources:
-      - tokenreviews
-  - verbs:
-      - create
-    apiGroups:
-      - authorization.k8s.io
-    resources:
-      - subjectaccessreviews
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: grafana-proxy
+  name: auth-delegator-user-grafana
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: grafana-proxy
+  name: system:auth-delegator
 subjects:
-  - kind: ServiceAccount
-    name: grafana-sa
+- kind: ServiceAccount
+  name: grafana-sa
+  namespace: user-grafana
